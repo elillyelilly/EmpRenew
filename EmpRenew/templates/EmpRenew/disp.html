@@ -8,10 +8,17 @@
 <body>
     <form action="{% url 'EmpRenew:edit' %}" method="post">{% csrf_token %}
         <table>
-            <tr><td>タイトル</td><td>{{form.keiyaku_start_date.value}}</td></tr>
+            <tr><td>タイトル</td>
         </table>
+    {% for disp in display %}
+        <div>
+            <p>CD@@@{{ disp.tdm0101_shain_cd }}</p>
+            <p>NAME@{{ disp.tdm0101_shain_nm }}</p>
+
+        </div>
+        {% endfor %}
 
         <input id = 'back' type="submit" value="BACK"/>
-    </form> 
+    </form>
 </body>
 </html>
