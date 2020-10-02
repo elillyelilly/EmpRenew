@@ -12,16 +12,16 @@
             _PROTOweb0
 
         {% for Empcolumn in display%} 
-            {{Empcolumn.shain_cd}}
-            {{Empcolumn.shain_nm}}
-            {{Empcolumn.shain_nm_k}}
+            {{Empcolumn.shain_cd}}<br>
+            <input type="text" name="genba_name" size="30" value={{Empcolumn.shain_nm}}>
+            {{Empcolumn.shain_nm_k}}<br>
             {{Empcolumn.adr1}}
-            {{Empcolumn.adr2}}
-            {{Empcolumn.tel1}}
+            {{Empcolumn.adr2}}<br>
+            {{Empcolumn.tel1}}<br>
             {{Empcolumn.birth_date}}
             {{Empcolumn.keiyaku_start_date}}
             {{Empcolumn.keiyaku_end_date}}
-            {{Empcolumn.genba_name}}
+            <input type="text" name="genba_name" size="30" value={{Empcolumn.genba_name}}>
             {{Empcolumn.shugyou1_to}}
             {{Empcolumn.shugyou2_to}}
             {{Empcolumn.shugyou3_to}}
