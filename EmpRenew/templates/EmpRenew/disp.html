@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">  
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>雇用契約書_印刷確認</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <form action="{% url 'EmpRenew:edit' %}" method="post">{% csrf_token %}
+            _PROTOweb0
+
+        {% for Empcolumn in display%} 
+            {{Empcolumn.shain_cd}}
+            {{Empcolumn.shain_nm}}
+            {{Empcolumn.shain_nm_k}}
+            {{Empcolumn.adr1}}
+            {{Empcolumn.adr2}}
+            {{Empcolumn.tel1}}
+            {{Empcolumn.birth_date}}
+            {{Empcolumn.keiyaku_start_date}}
+            {{Empcolumn.keiyaku_end_date}}
+            {{Empcolumn.genba_name}}
+            {{Empcolumn.shugyou1_to}}
+            {{Empcolumn.shugyou2_to}}
+            {{Empcolumn.shugyou3_to}}
+            {{Empcolumn.shugyou4_to}}
+            {{Empcolumn.shugyou1_from}}
+            {{Empcolumn.shugyou2_from}}
+            {{Empcolumn.shugyou3_from}}
+            {{Empcolumn.shugyou4_from}}
+            {{Empcolumn.shugyou1_break}}
+            {{Empcolumn.shugyou2_break}}
+            {{Empcolumn.shugyou3_break}}
+            {{Empcolumn.shugyou4_break}}
+            {{Empcolumn.shurou_nissu}}
+            {{Empcolumn.shoku_name}}
+            {{Empcolumn.chingin_kbn}}
+            {{Empcolumn.chingin_dt_1}}
+            {{Empcolumn.chingin_dt_2}}
+            {{Empcolumn.chingin_dt_3}}
+            {{Empcolumn.next_uq_date}}
+            {{Empcolumn.shugyou1_kosu}}
+            {{Empcolumn.shugyou2_kosu}}
+            {{Empcolumn.shugyou3_kosu}}
+            {{Empcolumn.shugyou4_kosu}}
+            {{Empcolumn.next_uq_day_num}}
+            {{Empcolumn.tou_str_uq_zan_num}}
+            {{Empcolumn.koyou_hoken_kbn}}
+            {{Empcolumn.shakai_hoken_kbn_cd}}
+            {{Empcolumn.created_date}}
+      
+        {% endfor %}
+
+        <input id = 'back' type="submit" value="BACK"/>
+    </form>
+</body>
+</html>

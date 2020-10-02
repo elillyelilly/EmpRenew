@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>EmpRenew-List</title>
+</head>
+
+<body>
+    <form action="{% url 'EmpRenew:disp' %}" method="post">{% csrf_token %}
+        <h1 align="center">雇用契約書</h1>
+        
+        <input type="date" id="today">
+
+        <p align="right"> 株式会社ソピュア<br>
+            千葉県成田市公津の杜4ｰ11ｰ2<br>公津の杜駅ビル205<br>
+            代表取締役　大竹清治<img src="./EmpRenew/img/ootakein.png" alt="代表印" title="印"<br>
+        </p>
+        <table border="1">
+            <tr>
+                <td>雇用期間</td>
+                <td><input type="text" name="keiyaku_start_date" size="8" value="20200101">〜<input type="text" name="keiyaku_end_date" size="8" value="20201231"><YYYYMMDD</td>
+            </tr>
+            <tr>
+                <td>勤務場所：</td>
+                <td><input type="text" name="genba_name" size="30" value="カーブス各店舗"></td>
+            </tr>
+            <tr>
+                <td>仕事の内容：</td>
+                <td><input type="text" name="shoku_name" size="30" value="カーブススタッフ"></td>
+            </tr>
+            <tr>
+                <td rowspan="4">就業時間<br>および<br>休憩時間</td>
+                <td>
+                    1：<input type="text" name="shugyou1_from" size="5" value="09:00">〜<input type="text" name="hugyou1_to" size="5" value="19:00">
+                    実働：<input type="text" name="shugyou1_kosu" size="5" value="8.0">休憩時間：<input type="text" name="shugyou1_break" size="4" value="1.0">
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        2：<input type="text" name="shugyou2_from" size="5" value="10:00">〜<input type="text" name="hugyou2_to" size="5" value="19:00">
+                        実働：<input type="text" name="shugyou2_kosu" size="5" value="7.0">休憩時間：<input type="text" name="shugyou2_break" size="4" value="1.0">
+                    </td>
+                    </tr>
+                    <td>
+                        3：<input type="text" name="shugyou3_from" size="5" value="11:00">〜<input type="text" name="hugyou3_to" size="5" value="19:00">
+                        実働：<input type="text" name="shugyou3_kosu" size="5" value="6.0">休憩時間：<input type="text" name="shugyou3_break" size="4" value="1.0">
+                    </td>
+                    </tr>
+                <tr>
+                    <td>
+                        4：<input type="text" name="shugyou4_from" size="5" value="12:00">〜<input type="text" name="hugyou4_to" size="5" value="19:00">
+                        実働：<input type="text" name="shugyou4_kosu" size="5" value="5.0">休憩時間：<input type="text" name="shugyou4_break" size="4" value="1.0">
+                    </td>
+                    </tr>
+            </tr>
+
+            <tr>
+                <td rowspan="3">就業日数および休日</td>
+                <td>週<input type="text" name="syurou_nissu" size="1" value="_">日　その他シフト制休日<br>（カーブススタッフの場合：日曜、祝日およびその他シフト制休日）</td>
+                <tr>
+                <td>雇用保険対象(週20時間以上)：<input type="text" name="koyou_hoken_kbn_cd" size="2" value="__"></td>
+                </tr>
+                <tr>
+                <td>健康保険対象(週30時間以上)：<input type="text" name="shakai_hoken_kbn_cd" size="2" value="__"></td>
+                </tr>
+            </tr>
+            <tr>
+                <td>有給期間</td>
+                <td>試用期間を含め、６ヶ月継続勤務した場合法定通り下記とする<br>
+                    <input type="text" name="next_uq_date" size="2" value="__">月に１日あたり<input type="text" name="shugyou1_kosu" size="5" value="_____">時間の年次有給休暇が<input type="text" name="next_uq_day_num" size="3" value="___">日分付与される。<br>
+                    但し、契約した就業日に対する出勤率が80%以上の場合に限る。<br>
+                    （<input type="text" name="next_uq_date" size="2" value="__">月末有給残数<input type="text" name="tou_str_uq_zan_num" size="5" value="_____">日）
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">所定外労働等</td>
+                <td>所定外労働をさせることが　<input type="text" name="shoteigai" size="2" value="有"></td>
+                <tr>
+                <td>休日労働させることが　<input type="text" name="kyuuzitsu" size="2" value="有"></td>
+                </tr>
+            </tr>
+
+            <tr>
+                <td>賃金</td>
+                <td><input type="text" name="chingin_kbn" size="5" value="日給or時給">  <input type="text" name="chingin_dt_1" size="8" value="________">円</td>
+                </tr>
+            <tr>
+                <td>その他</td>
+                <td><font size="2"> 担当者の指示により、就業時間・場所が変更となる場合もあります</font></td>
+            </tr>
+
+        </table>
+            
+        <p><input type="submit" value="確認する" id="printout"></p>
+    </form>
+    <script type="text/javascript">
+    window.onload = function () {
+        var date = new Date();
+
+        var yyyy = date.getFullYear();
+        var mm = ("0"+(date.getMonth()+1)).slice(-2);
+        var dd = ("0"+date.getDate()).slice(-2);
+        document.getElementById("today").value=yyyy+'-'+mm+'-'+dd;
+    }
+    </script>
+
+</body>
+</html>
